@@ -3,5 +3,6 @@
 [ext_resource type="AudioStream" uid="uid://bs5aq53qvyfne" path="res://assets/audio/Panel_opened.wav" id="1_mmjyj"]
 
 [node name="PanelOpenedAudioStreamPlayer" type="AudioStreamPlayer"]
+process_mode = 3
 stream = ExtResource("1_mmjyj")
 bus = &"Sfx"

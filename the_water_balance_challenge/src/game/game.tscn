@@ -1,3 +1,53 @@
-[gd_scene format=3 uid="uid://t2xv0frrgbdq"]
+[gd_scene load_steps=10 format=3 uid="uid://t2xv0frrgbdq"]
+
+[ext_resource type="Script" uid="uid://bxfhl7c4xbhtc" path="res://src/game/in_game_ui.gd" id="1_n7s5x"]
+[ext_resource type="Texture2D" uid="uid://ddqk0qtnoh0df" path="res://assets/ui/buttons/pause_button.png" id="2_6kr85"]
+[ext_resource type="PackedScene" uid="uid://bewwhwixmxul2" path="res://src/game/pause_control.tscn" id="3_xptat"]
+[ext_resource type="PackedScene" uid="uid://ckdgt3hhtstpq" path="res://src/game/level_completed_control.tscn" id="4_jhw8o"]
+[ext_resource type="PackedScene" uid="uid://caoxdpljo8d5k" path="res://src/game/level_failed_control.tscn" id="5_n7s5x"]
+[ext_resource type="PackedScene" uid="uid://m7klogcyjkp0" path="res://src/audio/button_pressed_audio_stream_player.tscn" id="6_jhw8o"]
+[ext_resource type="PackedScene" uid="uid://j3sby4v5ayby" path="res://src/audio/game_music_audio_stream_player.tscn" id="6_yarin"]
+[ext_resource type="PackedScene" uid="uid://bvt7uc46gn3rd" path="res://src/audio/panel_opened_audio_stream_player.tscn" id="7_n7s5x"]
+[ext_resource type="PackedScene" uid="uid://5xttcwq7wmbe" path="res://src/ui/black_screen_cover.tscn" id="9_6kr85"]
 
 [node name="Game" type="Node"]
+
+[node name="BlackScreenCover" parent="." instance=ExtResource("9_6kr85")]
+
+[node name="InGameUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n7s5x")
+
+[node name="PauseTextureButton" type="TextureButton" parent="InGameUI"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 32.0
+offset_right = 191.0
+offset_bottom = 185.0
+texture_normal = ExtResource("2_6kr85")
+
+[node name="PauseControl" parent="InGameUI" instance=ExtResource("3_xptat")]
+layout_mode = 1
+
+[node name="LevelCompletedControl" parent="InGameUI" instance=ExtResource("4_jhw8o")]
+visible = false
+layout_mode = 1
+
+[node name="LevelFailedControl" parent="InGameUI" instance=ExtResource("5_n7s5x")]
+layout_mode = 1
+
+[node name="Audio" type="Node" parent="InGameUI"]
+
+[node name="ButtonPressedAudioStreamPlayer" parent="InGameUI/Audio" instance=ExtResource("6_jhw8o")]
+
+[node name="PanelOpenedAudioStreamPlayer" parent="InGameUI/Audio" instance=ExtResource("7_n7s5x")]
+
+[node name="GameMusicAudioStreamPlayer" parent="InGameUI/Audio" instance=ExtResource("6_yarin")]
+
+[connection signal="pressed" from="InGameUI/PauseTextureButton" to="InGameUI" method="_on_pause_texture_button_pressed"]
+[connection signal="pause_closed" from="InGameUI/PauseControl" to="InGameUI" method="_on_pause_control_pause_closed"]

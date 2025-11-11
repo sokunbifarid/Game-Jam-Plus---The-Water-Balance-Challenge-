@@ -1,0 +1,174 @@
+[gd_scene load_steps=11 format=3 uid="uid://bewwhwixmxul2"]
+
+[ext_resource type="Script" uid="uid://vjydvlt4trkn" path="res://src/game/pause.gd" id="1_m874e"]
+[ext_resource type="FontFile" uid="uid://bjfj3cuvgd5g4" path="res://assets/fonts/Octosale-LV114.otf" id="2_g34x5"]
+[ext_resource type="Texture2D" uid="uid://cg13hyt5ovte2" path="res://assets/ui/buttons/single_button_back_panel.png" id="3_ssvdr"]
+[ext_resource type="PackedScene" uid="uid://c27tj4e4ox8k0" path="res://src/ui/main_menu/options_control.tscn" id="4_x33o1"]
+[ext_resource type="PackedScene" uid="uid://qa1uckwoia3h" path="res://src/ui/main_menu/help_control.tscn" id="5_8m1iy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yarin"]
+bg_color = Color(0, 0, 0, 0.40392157)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jhw8o"]
+font = ExtResource("2_g34x5")
+font_size = 84
+outline_size = 64
+outline_color = Color(0.27058825, 0.16862746, 0.06666667, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n7s5x"]
+font = ExtResource("2_g34x5")
+font_size = 50
+font_color = Color(0.27043608, 0.16897684, 0.06649562, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6kr85"]
+font = ExtResource("2_g34x5")
+font_size = 50
+font_color = Color(0.27058825, 0.16862746, 0.06666667, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_clwl7"]
+font = ExtResource("2_g34x5")
+font_size = 50
+font_color = Color(0.27043608, 0.16897684, 0.06649562, 1)
+
+[node name="PauseControl" type="Control"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m874e")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yarin")
+
+[node name="PausedLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -172.5
+offset_top = 72.0
+offset_right = 172.5
+offset_bottom = 160.0
+grow_horizontal = 2
+text = "PauSED"
+label_settings = SubResource("LabelSettings_jhw8o")
+
+[node name="PauseButtonsVBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.5
+offset_top = -310.0
+offset_right = 155.5
+offset_bottom = 310.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResumeTextureButton" type="TextureButton" parent="PauseButtonsVBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_ssvdr")
+
+[node name="ResumeLabel" type="Label" parent="PauseButtonsVBoxContainer/ResumeTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -17.0
+offset_right = 42.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "resume"
+label_settings = SubResource("LabelSettings_n7s5x")
+
+[node name="OptionsTextureButton" type="TextureButton" parent="PauseButtonsVBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_ssvdr")
+
+[node name="OptionsLabel" type="Label" parent="PauseButtonsVBoxContainer/OptionsTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -17.0
+offset_right = 42.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "OPTIONS"
+label_settings = SubResource("LabelSettings_n7s5x")
+
+[node name="HelpTextureButton" type="TextureButton" parent="PauseButtonsVBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_ssvdr")
+
+[node name="HelpLabel" type="Label" parent="PauseButtonsVBoxContainer/HelpTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -17.0
+offset_right = 42.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HELP"
+label_settings = SubResource("LabelSettings_6kr85")
+
+[node name="CloseTextureButton" type="TextureButton" parent="PauseButtonsVBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_ssvdr")
+
+[node name="CloseLabel" type="Label" parent="PauseButtonsVBoxContainer/CloseTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -17.0
+offset_right = 42.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "quit"
+label_settings = SubResource("LabelSettings_clwl7")
+
+[node name="OptionsControl" parent="." instance=ExtResource("4_x33o1")]
+layout_mode = 1
+mouse_filter = 2
+
+[node name="HelpControl" parent="." instance=ExtResource("5_8m1iy")]
+layout_mode = 1
+mouse_filter = 2
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="PauseButtonsVBoxContainer/ResumeTextureButton" to="." method="_on_resume_texture_button_pressed"]
+[connection signal="pressed" from="PauseButtonsVBoxContainer/OptionsTextureButton" to="." method="_on_options_texture_button_pressed"]
+[connection signal="pressed" from="PauseButtonsVBoxContainer/HelpTextureButton" to="." method="_on_help_texture_button_pressed"]
+[connection signal="pressed" from="PauseButtonsVBoxContainer/CloseTextureButton" to="." method="_on_close_texture_button_pressed"]
+[connection signal="options_closed" from="OptionsControl" to="." method="_on_options_control_options_closed"]
+[connection signal="help_closed" from="HelpControl" to="." method="_on_help_control_help_closed"]

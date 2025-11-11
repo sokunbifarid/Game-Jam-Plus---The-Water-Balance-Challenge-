@@ -1,0 +1,173 @@
+[gd_scene load_steps=12 format=3 uid="uid://caoxdpljo8d5k"]
+
+[ext_resource type="Script" uid="uid://dquvldt0u5k4s" path="res://src/game/level_failed_control.gd" id="1_nnaci"]
+[ext_resource type="Texture2D" uid="uid://c3f2cvonvm0dx" path="res://assets/ui/panels/level_completed_panel.png" id="2_01b8n"]
+[ext_resource type="Texture2D" uid="uid://jp638po1xuvs" path="res://assets/ui/panels/level_completed_panel_half_header.png" id="3_t1hoq"]
+[ext_resource type="FontFile" uid="uid://bjfj3cuvgd5g4" path="res://assets/fonts/Octosale-LV114.otf" id="4_bswq1"]
+[ext_resource type="Texture2D" uid="uid://cg13hyt5ovte2" path="res://assets/ui/buttons/single_button_back_panel.png" id="5_xd4ac"]
+[ext_resource type="PackedScene" uid="uid://m7klogcyjkp0" path="res://src/audio/button_pressed_audio_stream_player.tscn" id="6_a2wxs"]
+[ext_resource type="PackedScene" uid="uid://bvt7uc46gn3rd" path="res://src/audio/panel_opened_audio_stream_player.tscn" id="7_ifw0a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xniy2"]
+font = ExtResource("4_bswq1")
+font_size = 40
+font_color = Color(0.91764706, 0.16862746, 0.06666667, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_80fip"]
+font = ExtResource("4_bswq1")
+font_size = 72
+shadow_size = 65
+shadow_color = Color(0, 0, 0, 0.40784314)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cvpot"]
+font = ExtResource("4_bswq1")
+font_size = 50
+font_color = Color(0.27043608, 0.16897684, 0.06649562, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l5jlt"]
+font = ExtResource("4_bswq1")
+font_size = 50
+font_color = Color(0.27043608, 0.16897684, 0.06649562, 1)
+
+[node name="LevelFailedControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nnaci")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelFailedTextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -305.5
+offset_top = -252.0
+offset_right = 305.5
+offset_bottom = 396.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_01b8n")
+
+[node name="LevelFailedHeaderTextureRect" type="TextureRect" parent="LevelFailedTextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -333.5
+offset_right = 333.5
+offset_bottom = 134.0
+grow_horizontal = 2
+texture = ExtResource("3_t1hoq")
+
+[node name="LevelCompletedLabel" type="Label" parent="LevelFailedTextureRect/LevelFailedHeaderTextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = -57.5
+offset_right = 98.0
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "LEVEL 
+FAILED"
+label_settings = SubResource("LabelSettings_xniy2")
+horizontal_alignment = 1
+
+[node name="FailedNoteLabel" type="Label" parent="LevelFailedTextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -133.5
+offset_right = 168.0
+offset_bottom = 69.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Nice Try,
+Try Better 
+Next Time"
+label_settings = SubResource("LabelSettings_80fip")
+horizontal_alignment = 1
+
+[node name="ButtonsHBoxContainer" type="HBoxContainer" parent="LevelFailedTextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -313.0
+offset_top = -152.0
+offset_right = 313.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MenuTextureButton" type="TextureButton" parent="LevelFailedTextureRect/ButtonsHBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_xd4ac")
+
+[node name="MenuLabel" type="Label" parent="LevelFailedTextureRect/ButtonsHBoxContainer/MenuTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -17.0
+offset_right = 42.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Menu"
+label_settings = SubResource("LabelSettings_cvpot")
+
+[node name="CloseTextureButton" type="TextureButton" parent="LevelFailedTextureRect/ButtonsHBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_xd4ac")
+
+[node name="CloseLabel" type="Label" parent="LevelFailedTextureRect/ButtonsHBoxContainer/CloseTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -17.0
+offset_right = 42.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "quit"
+label_settings = SubResource("LabelSettings_l5jlt")
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="ButtonPressedAudioStreamPlayer" parent="Audio" instance=ExtResource("6_a2wxs")]
+
+[node name="PanelOpenedAudioStreamPlayer" parent="Audio" instance=ExtResource("7_ifw0a")]
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="LevelFailedTextureRect/ButtonsHBoxContainer/MenuTextureButton" to="." method="_on_menu_texture_button_pressed"]
+[connection signal="pressed" from="LevelFailedTextureRect/ButtonsHBoxContainer/CloseTextureButton" to="." method="_on_close_texture_button_pressed"]

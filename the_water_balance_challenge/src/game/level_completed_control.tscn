@@ -1,0 +1,174 @@
+[gd_scene load_steps=12 format=3 uid="uid://ckdgt3hhtstpq"]
+
+[ext_resource type="Script" uid="uid://cvkr7r4y3qgx1" path="res://src/game/level_completed_control.gd" id="1_kirno"]
+[ext_resource type="Texture2D" uid="uid://c3f2cvonvm0dx" path="res://assets/ui/panels/level_completed_panel.png" id="2_ucd5d"]
+[ext_resource type="Texture2D" uid="uid://hf5a7u6hdy2d" path="res://assets/ui/panels/level_completed_panel_full_header.png" id="3_hekms"]
+[ext_resource type="FontFile" uid="uid://bjfj3cuvgd5g4" path="res://assets/fonts/Octosale-LV114.otf" id="4_qah1k"]
+[ext_resource type="Texture2D" uid="uid://cg13hyt5ovte2" path="res://assets/ui/buttons/single_button_back_panel.png" id="5_ndaao"]
+[ext_resource type="PackedScene" uid="uid://m7klogcyjkp0" path="res://src/audio/button_pressed_audio_stream_player.tscn" id="6_fvnq7"]
+[ext_resource type="PackedScene" uid="uid://bvt7uc46gn3rd" path="res://src/audio/panel_opened_audio_stream_player.tscn" id="7_dh8nl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7r0dx"]
+font = ExtResource("4_qah1k")
+font_size = 30
+font_color = Color(0.27058825, 0.16862746, 0.06666667, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ueio8"]
+font = ExtResource("4_qah1k")
+font_size = 50
+font_color = Color(0.27043608, 0.16897684, 0.06649562, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_etvrb"]
+font = ExtResource("4_qah1k")
+font_size = 50
+font_color = Color(0.27043608, 0.16897684, 0.06649562, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1bl5u"]
+font = ExtResource("4_qah1k")
+font_size = 96
+shadow_size = 65
+shadow_color = Color(0, 0, 0, 0.40784314)
+
+[node name="LevelCompletedControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_kirno")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelCompletedTextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -305.5
+offset_top = -252.0
+offset_right = 305.5
+offset_bottom = 396.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ucd5d")
+
+[node name="LevelCompletedHeaderTextureRect" type="TextureRect" parent="LevelCompletedTextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -333.0
+offset_top = -224.0
+offset_right = 333.0
+offset_bottom = 117.0
+grow_horizontal = 2
+texture = ExtResource("3_hekms")
+
+[node name="LevelCompletedLabel" type="Label" parent="LevelCompletedTextureRect/LevelCompletedHeaderTextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = 41.5
+offset_right = 98.0
+offset_bottom = 108.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "LEVEL 
+COMPLETED"
+label_settings = SubResource("LabelSettings_7r0dx")
+horizontal_alignment = 1
+
+[node name="ButtonsHBoxContainer" type="HBoxContainer" parent="LevelCompletedTextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -313.0
+offset_top = -152.0
+offset_right = 313.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MenuTextureButton" type="TextureButton" parent="LevelCompletedTextureRect/ButtonsHBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_ndaao")
+
+[node name="MenuLabel" type="Label" parent="LevelCompletedTextureRect/ButtonsHBoxContainer/MenuTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -17.0
+offset_right = 42.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Menu"
+label_settings = SubResource("LabelSettings_ueio8")
+
+[node name="CloseTextureButton" type="TextureButton" parent="LevelCompletedTextureRect/ButtonsHBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_ndaao")
+
+[node name="CloseLabel" type="Label" parent="LevelCompletedTextureRect/ButtonsHBoxContainer/CloseTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -17.0
+offset_right = 42.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "quit"
+label_settings = SubResource("LabelSettings_etvrb")
+
+[node name="GoodJobLabel" type="Label" parent="LevelCompletedTextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -133.5
+offset_right = 168.0
+offset_bottom = 69.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Good 
+Job!"
+label_settings = SubResource("LabelSettings_1bl5u")
+horizontal_alignment = 1
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="ButtonPressedAudioStreamPlayer" parent="Audio" instance=ExtResource("6_fvnq7")]
+
+[node name="PanelOpenedAudioStreamPlayer" parent="Audio" instance=ExtResource("7_dh8nl")]
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="LevelCompletedTextureRect/ButtonsHBoxContainer/MenuTextureButton" to="." method="_on_menu_texture_button_pressed"]
+[connection signal="pressed" from="LevelCompletedTextureRect/ButtonsHBoxContainer/CloseTextureButton" to="." method="_on_close_texture_button_pressed"]
