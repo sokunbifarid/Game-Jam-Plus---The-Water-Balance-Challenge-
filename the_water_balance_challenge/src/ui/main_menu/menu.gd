@@ -6,6 +6,7 @@ extends Control
 
 signal play_button_pressed
 signal options_button_pressed
+signal help_button_pressed
 
 
 func _on_play_texture_button_pressed() -> void:
@@ -22,6 +23,7 @@ func _on_options_texture_button_pressed() -> void:
 
 func _on_help_texture_button_pressed() -> void:
 	self.hide()
+	help_button_pressed.emit()
 	button_pressed_audio_stream_player.play()
 
 

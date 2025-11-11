@@ -10,6 +10,7 @@ signal zoom_out_completed
 
 func _ready() -> void:
 	black_circle_texture_rect.hide()
+	self.show()
 
 func zoom_out():
 	black_circle_texture_rect.scale = Vector2.ZERO

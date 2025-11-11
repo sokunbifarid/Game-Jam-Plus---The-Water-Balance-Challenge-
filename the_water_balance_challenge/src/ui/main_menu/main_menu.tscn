@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ben015ddg3i15"]
+[gd_scene load_steps=15 format=3 uid="uid://ben015ddg3i15"]
 
 [ext_resource type="Script" uid="uid://c16dmrdkp41lp" path="res://src/ui/main_menu/main_menu.gd" id="1_73fpq"]
 [ext_resource type="PackedScene" uid="uid://5xttcwq7wmbe" path="res://src/ui/black_screen_cover.tscn" id="1_qkuje"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://bjfj3cuvgd5g4" path="res://assets/fonts/Octosale-LV114.otf" id="4_73fpq"]
 [ext_resource type="PackedScene" uid="uid://c27tj4e4ox8k0" path="res://src/ui/main_menu/options_control.tscn" id="6_hhctb"]
 [ext_resource type="PackedScene" uid="uid://j3sby4v5ayby" path="res://src/audio/game_music_audio_stream_player.tscn" id="8_2rik1"]
+[ext_resource type="PackedScene" uid="uid://qa1uckwoia3h" path="res://src/ui/main_menu/help_control.tscn" id="8_uiflr"]
 [ext_resource type="PackedScene" uid="uid://m7klogcyjkp0" path="res://src/audio/button_pressed_audio_stream_player.tscn" id="9_ctewx"]
 [ext_resource type="PackedScene" uid="uid://bvt7uc46gn3rd" path="res://src/audio/panel_opened_audio_stream_player.tscn" id="10_ctewx"]
 
@@ -156,6 +157,10 @@ label_settings = SubResource("LabelSettings_6q0c0")
 [node name="OptionsControl" parent="." instance=ExtResource("6_hhctb")]
 layout_mode = 1
 
+[node name="HelpControl" parent="." instance=ExtResource("8_uiflr")]
+visible = false
+layout_mode = 1
+
 [node name="GameName" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 5
@@ -175,6 +180,7 @@ layout_mode = 1
 
 [node name="GameMusicAudioStreamPlayer" parent="Audio" instance=ExtResource("8_2rik1")]
 
+[connection signal="help_button_pressed" from="Menu" to="." method="_on_menu_help_button_pressed"]
 [connection signal="options_button_pressed" from="Menu" to="." method="_on_menu_options_button_pressed"]
 [connection signal="play_button_pressed" from="Menu" to="." method="_on_menu_play_button_pressed"]
 [connection signal="visibility_changed" from="Menu" to="Menu" method="_on_visibility_changed"]
@@ -183,4 +189,5 @@ layout_mode = 1
 [connection signal="pressed" from="Menu/ButtonsVBoxContainer/HelpTextureButton" to="Menu" method="_on_help_texture_button_pressed"]
 [connection signal="pressed" from="Menu/ButtonsVBoxContainer/CloseTextureButton" to="Menu" method="_on_close_texture_button_pressed"]
 [connection signal="options_closed" from="OptionsControl" to="." method="_on_options_control_options_closed"]
+[connection signal="help_closed" from="HelpControl" to="." method="_on_help_control_help_closed"]
 [connection signal="zoom_out_completed" from="BlackScreenCover" to="." method="_on_black_screen_cover_zoom_out_completed"]

@@ -1,0 +1,201 @@
+[gd_scene load_steps=12 format=3 uid="uid://qa1uckwoia3h"]
+
+[ext_resource type="Script" uid="uid://puhtm44ck5t" path="res://src/ui/main_menu/help_control.gd" id="1_p1uub"]
+[ext_resource type="Texture2D" uid="uid://bapymwjbovcg5" path="res://assets/ui/panels/text_panel.png" id="2_ytsj4"]
+[ext_resource type="Texture2D" uid="uid://dwwoi8nui287m" path="res://assets/ui/panels/text_panel_header.png" id="3_xtafp"]
+[ext_resource type="FontFile" uid="uid://bjfj3cuvgd5g4" path="res://assets/fonts/Octosale-LV114.otf" id="4_4loiw"]
+[ext_resource type="FontFile" uid="uid://bv46yid52apmk" path="res://assets/fonts/HeroikanamikusRegular-woXq8.otf" id="5_psea4"]
+[ext_resource type="Texture2D" uid="uid://cg13hyt5ovte2" path="res://assets/ui/buttons/single_button_back_panel.png" id="6_bympf"]
+[ext_resource type="PackedScene" uid="uid://m7klogcyjkp0" path="res://src/audio/button_pressed_audio_stream_player.tscn" id="7_xtafp"]
+[ext_resource type="PackedScene" uid="uid://bvt7uc46gn3rd" path="res://src/audio/panel_opened_audio_stream_player.tscn" id="8_4loiw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xu7mn"]
+font = ExtResource("4_4loiw")
+font_size = 32
+font_color = Color(0.27058825, 0.16862746, 0.06666667, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nigwu"]
+font = ExtResource("5_psea4")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_6q0c0"]
+font = ExtResource("4_4loiw")
+font_size = 50
+font_color = Color(0.27043608, 0.16897684, 0.06649562, 1)
+
+[node name="HelpControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p1uub")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HelpHBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -619.0
+offset_top = -155.5
+offset_right = 619.0
+offset_bottom = 267.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 300
+
+[node name="ObjectivePanelTextureRect" type="TextureRect" parent="HelpHBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_ytsj4")
+
+[node name="ObjectiveHeaderTextureRect" type="TextureRect" parent="HelpHBoxContainer/ObjectivePanelTextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -262.0
+offset_top = -40.0
+offset_right = 262.0
+offset_bottom = 65.0
+grow_horizontal = 2
+texture = ExtResource("3_xtafp")
+
+[node name="ObjectiveLabel" type="Label" parent="HelpHBoxContainer/ObjectivePanelTextureRect/ObjectiveHeaderTextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.5
+offset_top = -25.0
+offset_right = 94.5
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "OBJECTIVE"
+label_settings = SubResource("LabelSettings_xu7mn")
+
+[node name="ObjectiveDocumentedLabel" type="Label" parent="HelpHBoxContainer/ObjectivePanelTextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -221.5
+offset_top = -24.0
+offset_right = 221.5
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Supply the required volume 
+of water to all necessary
+ locations while keeping track
+ of  routine maintenance"
+label_settings = SubResource("LabelSettings_nigwu")
+horizontal_alignment = 1
+
+[node name="ControlsPanelTextureRect" type="TextureRect" parent="HelpHBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_ytsj4")
+
+[node name="ControlsHeaderTextureRect" type="TextureRect" parent="HelpHBoxContainer/ControlsPanelTextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -262.0
+offset_top = -40.0
+offset_right = 262.0
+offset_bottom = 65.0
+grow_horizontal = 2
+texture = ExtResource("3_xtafp")
+
+[node name="ControlsLabel" type="Label" parent="HelpHBoxContainer/ControlsPanelTextureRect/ControlsHeaderTextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.5
+offset_top = -25.0
+offset_right = 94.5
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "CONTROLS"
+label_settings = SubResource("LabelSettings_xu7mn")
+
+[node name="ControlsDocumentedLabel" type="Label" parent="HelpHBoxContainer/ControlsPanelTextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -221.5
+offset_top = -24.0
+offset_right = 221.5
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Tap on locations on the screen
+to move the character around.
+
+tap on objects to interact with
+them."
+label_settings = SubResource("LabelSettings_nigwu")
+horizontal_alignment = 1
+
+[node name="CloseTextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -155.5
+offset_top = -224.0
+offset_right = 155.5
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("6_bympf")
+
+[node name="CloseLabel" type="Label" parent="CloseTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -17.0
+offset_right = 42.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "CLOSE"
+label_settings = SubResource("LabelSettings_6q0c0")
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="ButtonPressedAudioStreamPlayer" parent="Audio" instance=ExtResource("7_xtafp")]
+
+[node name="PanelOpenedAudioStreamPlayer" parent="Audio" instance=ExtResource("8_4loiw")]
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="CloseTextureButton" to="." method="_on_close_texture_button_pressed"]
