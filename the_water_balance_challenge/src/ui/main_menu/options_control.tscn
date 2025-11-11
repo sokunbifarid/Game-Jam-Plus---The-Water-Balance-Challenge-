@@ -1,0 +1,206 @@
+[gd_scene load_steps=15 format=3 uid="uid://c27tj4e4ox8k0"]
+
+[ext_resource type="Script" uid="uid://cprltatlfxvu1" path="res://src/ui/main_menu/options_control.gd" id="1_lb3m5"]
+[ext_resource type="Texture2D" uid="uid://bapymwjbovcg5" path="res://assets/ui/panels/text_panel.png" id="2_qpdps"]
+[ext_resource type="Texture2D" uid="uid://cg13hyt5ovte2" path="res://assets/ui/buttons/single_button_back_panel.png" id="3_expg6"]
+[ext_resource type="FontFile" uid="uid://bjfj3cuvgd5g4" path="res://assets/fonts/Octosale-LV114.otf" id="4_m7uco"]
+[ext_resource type="Texture2D" uid="uid://dwwoi8nui287m" path="res://assets/ui/panels/text_panel_header.png" id="5_r6eis"]
+[ext_resource type="Texture2D" uid="uid://dnl0u81exi2dv" path="res://assets/ui/buttons/music_on.png" id="6_nc277"]
+[ext_resource type="Texture2D" uid="uid://b2mwyj2u017hk" path="res://assets/ui/buttons/music_off.png" id="7_ynm0c"]
+[ext_resource type="Texture2D" uid="uid://bminrcumyaqvt" path="res://assets/ui/buttons/sfx_on.png" id="8_x8y4o"]
+[ext_resource type="Texture2D" uid="uid://dkk10nlsibo6d" path="res://assets/ui/buttons/sfx_off.png" id="9_myo23"]
+[ext_resource type="PackedScene" uid="uid://m7klogcyjkp0" path="res://src/audio/button_pressed_audio_stream_player.tscn" id="10_expg6"]
+[ext_resource type="PackedScene" uid="uid://bvt7uc46gn3rd" path="res://src/audio/panel_opened_audio_stream_player.tscn" id="11_m7uco"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6q0c0"]
+font = ExtResource("4_m7uco")
+font_size = 50
+font_color = Color(0.27043608, 0.16897684, 0.06649562, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_beo25"]
+font = ExtResource("4_m7uco")
+font_size = 45
+font_color = Color(0.27058825, 0.16862746, 0.06666667, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wm0t5"]
+font = ExtResource("4_m7uco")
+font_size = 32
+font_color = Color(0.27058825, 0.16862746, 0.06666667, 1)
+
+[node name="OptionsControl" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lb3m5")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionsPanelTextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -308.5
+offset_top = -123.5
+offset_right = 308.5
+offset_bottom = 299.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(308, 120)
+texture = ExtResource("2_qpdps")
+
+[node name="CloseTextureButton" type="TextureButton" parent="OptionsPanelTextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -155.5
+offset_top = -72.0
+offset_right = 155.5
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("3_expg6")
+
+[node name="CloseLabel" type="Label" parent="OptionsPanelTextureRect/CloseTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -17.0
+offset_right = 42.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "CLOSE"
+label_settings = SubResource("LabelSettings_6q0c0")
+
+[node name="OptionsTextureRect" type="TextureRect" parent="OptionsPanelTextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -262.0
+offset_top = -48.0
+offset_right = 262.0
+offset_bottom = 57.0
+grow_horizontal = 2
+texture = ExtResource("5_r6eis")
+
+[node name="Label" type="Label" parent="OptionsPanelTextureRect/OptionsTextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = -31.5
+offset_right = 106.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "OPTIONS"
+label_settings = SubResource("LabelSettings_beo25")
+
+[node name="AudioVBoxContainer" type="VBoxContainer" parent="OptionsPanelTextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -118.0
+offset_right = 111.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MusicHBoxContainer" type="HBoxContainer" parent="OptionsPanelTextureRect/AudioVBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 150
+
+[node name="MusicLabel" type="Label" parent="OptionsPanelTextureRect/AudioVBoxContainer/MusicHBoxContainer"]
+layout_mode = 2
+text = "Music"
+label_settings = SubResource("LabelSettings_wm0t5")
+
+[node name="MusicTextureButton" type="TextureButton" parent="OptionsPanelTextureRect/AudioVBoxContainer/MusicHBoxContainer"]
+custom_minimum_size = Vector2(76, 76)
+layout_mode = 2
+
+[node name="MusicOn" type="TextureRect" parent="OptionsPanelTextureRect/AudioVBoxContainer/MusicHBoxContainer/MusicTextureButton"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("6_nc277")
+
+[node name="MusicOff" type="TextureRect" parent="OptionsPanelTextureRect/AudioVBoxContainer/MusicHBoxContainer/MusicTextureButton"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("7_ynm0c")
+
+[node name="SfxHBoxContainer" type="HBoxContainer" parent="OptionsPanelTextureRect/AudioVBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 190
+
+[node name="SfxLabel" type="Label" parent="OptionsPanelTextureRect/AudioVBoxContainer/SfxHBoxContainer"]
+layout_mode = 2
+text = "Sfx"
+label_settings = SubResource("LabelSettings_wm0t5")
+
+[node name="SfxTextureButton" type="TextureButton" parent="OptionsPanelTextureRect/AudioVBoxContainer/SfxHBoxContainer"]
+custom_minimum_size = Vector2(76, 76)
+layout_mode = 2
+
+[node name="SfxOn" type="TextureRect" parent="OptionsPanelTextureRect/AudioVBoxContainer/SfxHBoxContainer/SfxTextureButton"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("8_x8y4o")
+
+[node name="SfxOff" type="TextureRect" parent="OptionsPanelTextureRect/AudioVBoxContainer/SfxHBoxContainer/SfxTextureButton"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("9_myo23")
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="ButtonPressedAudioStreamPlayer" parent="Audio" instance=ExtResource("10_expg6")]
+
+[node name="PanelOpenedAudioStreamPlayer" parent="Audio" instance=ExtResource("11_m7uco")]
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="OptionsPanelTextureRect/CloseTextureButton" to="." method="_on_close_texture_button_pressed"]
+[connection signal="pressed" from="OptionsPanelTextureRect/AudioVBoxContainer/MusicHBoxContainer/MusicTextureButton" to="." method="_on_music_texture_button_pressed"]
+[connection signal="pressed" from="OptionsPanelTextureRect/AudioVBoxContainer/SfxHBoxContainer/SfxTextureButton" to="." method="_on_sfx_texture_button_pressed"]

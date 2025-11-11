@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://m7klogcyjkp0"]
+
+[ext_resource type="AudioStream" uid="uid://bgrprwc8m0isg" path="res://assets/audio/Button_pressed.wav" id="1_42uc1"]
+
+[node name="ButtonPressedAudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_42uc1")
+bus = &"Sfx"

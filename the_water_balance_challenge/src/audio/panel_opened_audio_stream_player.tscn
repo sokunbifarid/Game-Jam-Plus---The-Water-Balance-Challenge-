@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvt7uc46gn3rd"]
+
+[ext_resource type="AudioStream" uid="uid://bs5aq53qvyfne" path="res://assets/audio/Panel_opened.wav" id="1_mmjyj"]
+
+[node name="PanelOpenedAudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_mmjyj")
+bus = &"Sfx"

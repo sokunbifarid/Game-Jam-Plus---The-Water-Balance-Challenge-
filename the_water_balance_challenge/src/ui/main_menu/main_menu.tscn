@@ -1,0 +1,186 @@
+[gd_scene load_steps=14 format=3 uid="uid://ben015ddg3i15"]
+
+[ext_resource type="Script" uid="uid://c16dmrdkp41lp" path="res://src/ui/main_menu/main_menu.gd" id="1_73fpq"]
+[ext_resource type="PackedScene" uid="uid://5xttcwq7wmbe" path="res://src/ui/black_screen_cover.tscn" id="1_qkuje"]
+[ext_resource type="Texture2D" uid="uid://8vcm26mwto6" path="res://assets/ui/water_challange_logo_small.png" id="2_uiflr"]
+[ext_resource type="Script" uid="uid://b13lsi83wota" path="res://src/ui/main_menu/menu.gd" id="3_73fpq"]
+[ext_resource type="Texture2D" uid="uid://cg13hyt5ovte2" path="res://assets/ui/buttons/single_button_back_panel.png" id="3_odgsv"]
+[ext_resource type="FontFile" uid="uid://bjfj3cuvgd5g4" path="res://assets/fonts/Octosale-LV114.otf" id="4_73fpq"]
+[ext_resource type="PackedScene" uid="uid://c27tj4e4ox8k0" path="res://src/ui/main_menu/options_control.tscn" id="6_hhctb"]
+[ext_resource type="PackedScene" uid="uid://j3sby4v5ayby" path="res://src/audio/game_music_audio_stream_player.tscn" id="8_2rik1"]
+[ext_resource type="PackedScene" uid="uid://m7klogcyjkp0" path="res://src/audio/button_pressed_audio_stream_player.tscn" id="9_ctewx"]
+[ext_resource type="PackedScene" uid="uid://bvt7uc46gn3rd" path="res://src/audio/panel_opened_audio_stream_player.tscn" id="10_ctewx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6q0c0"]
+font = ExtResource("4_73fpq")
+font_size = 50
+font_color = Color(0.27043608, 0.16897684, 0.06649562, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ayvlc"]
+font = ExtResource("4_73fpq")
+font_size = 50
+font_color = Color(0.27043608, 0.16897684, 0.06649562, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1wwld"]
+font = ExtResource("4_73fpq")
+font_size = 50
+font_color = Color(0.27058825, 0.16862746, 0.06666667, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_73fpq")
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_73fpq")
+
+[node name="Panel" type="Panel" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonsVBoxContainer" type="VBoxContainer" parent="Menu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -155.5
+offset_top = -692.0
+offset_right = 155.5
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(155, 310)
+
+[node name="PlayTextureButton" type="TextureButton" parent="Menu/ButtonsVBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_odgsv")
+
+[node name="PlayLabel" type="Label" parent="Menu/ButtonsVBoxContainer/PlayTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -17.0
+offset_right = 42.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PLAY"
+label_settings = SubResource("LabelSettings_6q0c0")
+
+[node name="OptionsTextureButton" type="TextureButton" parent="Menu/ButtonsVBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_odgsv")
+
+[node name="OptionsLabel" type="Label" parent="Menu/ButtonsVBoxContainer/OptionsTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -17.0
+offset_right = 42.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "OPTIONS"
+label_settings = SubResource("LabelSettings_ayvlc")
+
+[node name="HelpTextureButton" type="TextureButton" parent="Menu/ButtonsVBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_odgsv")
+
+[node name="HelpLabel" type="Label" parent="Menu/ButtonsVBoxContainer/HelpTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -17.0
+offset_right = 42.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HELP"
+label_settings = SubResource("LabelSettings_1wwld")
+
+[node name="CloseTextureButton" type="TextureButton" parent="Menu/ButtonsVBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_odgsv")
+
+[node name="CloseLabel" type="Label" parent="Menu/ButtonsVBoxContainer/CloseTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -17.0
+offset_right = 42.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "CLOSE"
+label_settings = SubResource("LabelSettings_6q0c0")
+
+[node name="Audio" type="Node" parent="Menu"]
+
+[node name="ButtonPressedAudioStreamPlayer" parent="Menu/Audio" instance=ExtResource("9_ctewx")]
+
+[node name="PanelOpenedAudioStreamPlayer" parent="Menu/Audio" instance=ExtResource("10_ctewx")]
+
+[node name="OptionsControl" parent="." instance=ExtResource("6_hhctb")]
+layout_mode = 1
+
+[node name="GameName" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -277.0
+offset_top = 64.0
+offset_right = 277.0
+offset_bottom = 301.0
+grow_horizontal = 2
+texture = ExtResource("2_uiflr")
+
+[node name="BlackScreenCover" parent="." instance=ExtResource("1_qkuje")]
+layout_mode = 1
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="GameMusicAudioStreamPlayer" parent="Audio" instance=ExtResource("8_2rik1")]
+
+[connection signal="options_button_pressed" from="Menu" to="." method="_on_menu_options_button_pressed"]
+[connection signal="play_button_pressed" from="Menu" to="." method="_on_menu_play_button_pressed"]
+[connection signal="visibility_changed" from="Menu" to="Menu" method="_on_visibility_changed"]
+[connection signal="pressed" from="Menu/ButtonsVBoxContainer/PlayTextureButton" to="Menu" method="_on_play_texture_button_pressed"]
+[connection signal="pressed" from="Menu/ButtonsVBoxContainer/OptionsTextureButton" to="Menu" method="_on_options_texture_button_pressed"]
+[connection signal="pressed" from="Menu/ButtonsVBoxContainer/HelpTextureButton" to="Menu" method="_on_help_texture_button_pressed"]
+[connection signal="pressed" from="Menu/ButtonsVBoxContainer/CloseTextureButton" to="Menu" method="_on_close_texture_button_pressed"]
+[connection signal="options_closed" from="OptionsControl" to="." method="_on_options_control_options_closed"]
+[connection signal="zoom_out_completed" from="BlackScreenCover" to="." method="_on_black_screen_cover_zoom_out_completed"]
