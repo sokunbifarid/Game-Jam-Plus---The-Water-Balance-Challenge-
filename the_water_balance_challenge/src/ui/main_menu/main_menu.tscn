@@ -158,7 +158,6 @@ label_settings = SubResource("LabelSettings_6q0c0")
 layout_mode = 1
 
 [node name="HelpControl" parent="." instance=ExtResource("8_uiflr")]
-visible = false
 layout_mode = 1
 
 [node name="GameName" type="TextureRect" parent="."]

@@ -23,6 +23,7 @@ func _on_menu_play_button_pressed() -> void:
 	if not getting_ready_to_play_game:
 		getting_ready_to_play_game = true
 		black_screen_cover.zoom_out()
+		Global.set_game_ended(true)
 
 
 func _on_black_screen_cover_zoom_out_completed() -> void:

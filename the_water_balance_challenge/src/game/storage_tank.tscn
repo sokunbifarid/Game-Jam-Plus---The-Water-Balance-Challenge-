@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvaf3od5u2nwg"]
+
+[ext_resource type="Texture2D" uid="uid://dndf6ggqjd6ji" path="res://assets/2d_art/laboratory/tilesStuff.png" id="1_v0w2h"]
+[ext_resource type="FontFile" uid="uid://bjfj3cuvgd5g4" path="res://assets/fonts/Octosale-LV114.otf" id="2_t20h7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t20h7"]
+radius = 48.0
+height = 258.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjfwy"]
+bg_color = Color(0.0627451, 0.0627451, 0.0627451, 0.73333335)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q8eon"]
+font = ExtResource("2_t20h7")
+font_size = 30
+
+[node name="StorageTank" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_v0w2h")
+region_enabled = true
+region_rect = Rect2(1474, 336, 78, 168)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_t20h7")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -24.0
+offset_right = 56.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gjfwy")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -11.5
+offset_right = 23.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "FARM"
+label_settings = SubResource("LabelSettings_q8eon")
