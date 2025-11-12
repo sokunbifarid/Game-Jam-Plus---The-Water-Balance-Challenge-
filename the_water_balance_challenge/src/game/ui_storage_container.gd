@@ -14,8 +14,8 @@ func _ready() -> void:
 	elif current_storage_type == Global.all_storage_containers_list.CONTAINER_3:
 		storage_name_label.text = Global.storage_3_name
 
-func _process(delta: float) -> void:
-	storage_percent_label.text = str(v_slider.value) + "%"
+func _process(_delta: float) -> void:
+	storage_percent_label.text = str(int(v_slider.value)) + "%"
 	texture_progress_bar.value = v_slider.value
 	if current_storage_type != Global.current_active_storage_container:
 		if current_storage_type == Global.all_storage_containers_list.CONTAINER_1:
@@ -24,6 +24,14 @@ func _process(delta: float) -> void:
 			v_slider.value = Global.storage_tank_2_value
 		elif current_storage_type == Global.all_storage_containers_list.CONTAINER_3:
 			v_slider.value = Global.storage_tank_3_value
+	else:
+		if current_storage_type == Global.all_storage_containers_list.CONTAINER_1:
+			Global.storage_tank_1_value = int(v_slider.value)
+		elif current_storage_type == Global.all_storage_containers_list.CONTAINER_2:
+			Global.storage_tank_2_value = int(v_slider.value)
+		elif current_storage_type == Global.all_storage_containers_list.CONTAINER_3:
+			Global.storage_tank_3_value = int(v_slider.value)
+		Global.limit_storage_values_to_max()
 
 func _on_visibility_changed() -> void:
 	if visible:

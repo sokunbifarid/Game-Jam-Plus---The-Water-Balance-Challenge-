@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://t2xv0frrgbdq"]
+[gd_scene load_steps=14 format=3 uid="uid://t2xv0frrgbdq"]
 
 [ext_resource type="Script" uid="uid://bxfhl7c4xbhtc" path="res://src/game/in_game_ui.gd" id="1_n7s5x"]
+[ext_resource type="Script" uid="uid://dijiolbvp1xrj" path="res://src/game/game.gd" id="1_ueio8"]
 [ext_resource type="Texture2D" uid="uid://ddqk0qtnoh0df" path="res://assets/ui/buttons/pause_button.png" id="2_6kr85"]
 [ext_resource type="PackedScene" uid="uid://bewwhwixmxul2" path="res://src/game/pause_control.tscn" id="3_xptat"]
 [ext_resource type="PackedScene" uid="uid://ckdgt3hhtstpq" path="res://src/game/level_completed_control.tscn" id="4_jhw8o"]
@@ -14,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b86tul50ei7o8" path="res://src/game/player.tscn" id="11_htx8b"]
 
 [node name="Game" type="Node"]
+script = ExtResource("1_ueio8")
 
 [node name="BlackScreenCover" parent="." instance=ExtResource("9_6kr85")]
 visible = false
@@ -26,14 +28,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_n7s5x")
 
 [node name="PauseTextureButton" type="TextureButton" parent="InGameUI"]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 32.0
-offset_right = 191.0
-offset_bottom = 185.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 167.0
+offset_bottom = 169.0
 texture_normal = ExtResource("2_6kr85")
 
 [node name="PauseControl" parent="InGameUI" instance=ExtResource("3_xptat")]
@@ -63,7 +66,7 @@ layout_mode = 1
 [node name="Map" parent="GameNodes" instance=ExtResource("10_7r0dx")]
 
 [node name="Player" parent="GameNodes" instance=ExtResource("11_htx8b")]
-position = Vector2(417, 363)
+position = Vector2(436, 397)
 
 [connection signal="pressed" from="InGameUI/PauseTextureButton" to="InGameUI" method="_on_pause_texture_button_pressed"]
 [connection signal="pause_closed" from="InGameUI/PauseControl" to="InGameUI" method="_on_pause_control_pause_closed"]
