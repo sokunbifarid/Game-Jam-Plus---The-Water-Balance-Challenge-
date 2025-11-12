@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dex8pxlqvcsbd"
-path="res://.godot/imported/meppo 64x64px.png-5c1d85b570a34181215ea596dea0398a.ctex"
+uid="uid://b8e0406ygr5tc"
+path="res://.godot/imported/pipe_lever.png-77e9567145e9a0503976023da57a7b79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/2d_art/character/meppo 64x64px.png"
-dest_files=["res://.godot/imported/meppo 64x64px.png-5c1d85b570a34181215ea596dea0398a.ctex"]
+source_file="res://assets/2d_art/pipes/pipe_lever.png"
+dest_files=["res://.godot/imported/pipe_lever.png-77e9567145e9a0503976023da57a7b79.ctex"]
 
 [params]
 

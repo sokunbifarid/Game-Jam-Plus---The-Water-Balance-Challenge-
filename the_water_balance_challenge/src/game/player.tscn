@@ -107,23 +107,27 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y2kn2"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7dijx"]
 radius = 24.0
 height = 48.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
 script = ExtResource("1_7dijx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -64)
 sprite_frames = SubResource("SpriteFrames_gq86q")
 animation = &"walk"
 frame_progress = 0.29927328
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 40)
-shape = SubResource("CapsuleShape2D_y2kn2")
+position = Vector2(0, -24)
+shape = SubResource("CapsuleShape2D_7dijx")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 30.0
+simplify_path = true
 debug_enabled = true
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]

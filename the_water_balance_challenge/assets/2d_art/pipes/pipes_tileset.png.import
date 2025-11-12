@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0rfjt0gx5i4q"
-path="res://.godot/imported/meppo 32x32px.png-c9f3126366b7e4f7aaa76f6010ab4a0f.ctex"
+uid="uid://45blas50ojwe"
+path="res://.godot/imported/pipes_tileset.png-62ca662d3e51d938c44ece536152275d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/2d_art/character/meppo 32x32px.png"
-dest_files=["res://.godot/imported/meppo 32x32px.png-c9f3126366b7e4f7aaa76f6010ab4a0f.ctex"]
+source_file="res://assets/2d_art/pipes/pipes_tileset.png"
+dest_files=["res://.godot/imported/pipes_tileset.png-62ca662d3e51d938c44ece536152275d.ctex"]
 
 [params]
 

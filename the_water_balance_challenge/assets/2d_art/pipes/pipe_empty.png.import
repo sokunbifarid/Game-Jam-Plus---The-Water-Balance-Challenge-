@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djv4lptr5bokj"
-path="res://.godot/imported/spriteSheet_tiledLiquids_48x48.png-a72d0204853aa863305be4225b997ee7.ctex"
+uid="uid://co5a1kahycgu3"
+path="res://.godot/imported/pipe_empty.png-e3a88df587da473bd5a347bfe59473b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/2d_art/laboratory/spriteSheet_tiledLiquids_48x48.png"
-dest_files=["res://.godot/imported/spriteSheet_tiledLiquids_48x48.png-a72d0204853aa863305be4225b997ee7.ctex"]
+source_file="res://assets/2d_art/pipes/pipe_empty.png"
+dest_files=["res://.godot/imported/pipe_empty.png-e3a88df587da473bd5a347bfe59473b3.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvaf3od5u2nwg"]
+[gd_scene load_steps=8 format=3 uid="uid://bvaf3od5u2nwg"]
 
+[ext_resource type="Script" uid="uid://b5pt4gdxptmtd" path="res://src/game/storage_tank.gd" id="1_gjfwy"]
 [ext_resource type="Texture2D" uid="uid://dndf6ggqjd6ji" path="res://assets/2d_art/laboratory/tilesStuff.png" id="1_v0w2h"]
 [ext_resource type="FontFile" uid="uid://bjfj3cuvgd5g4" path="res://assets/fonts/Octosale-LV114.otf" id="2_t20h7"]
 
@@ -14,7 +15,12 @@ bg_color = Color(0.0627451, 0.0627451, 0.0627451, 0.73333335)
 font = ExtResource("2_t20h7")
 font_size = 30
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gjfwy"]
+radius = 65.0
+height = 284.0
+
 [node name="StorageTank" type="StaticBody2D"]
+script = ExtResource("1_gjfwy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.5, 1.5)
@@ -26,7 +32,7 @@ region_rect = Rect2(1474, 336, 78, 168)
 position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_t20h7")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="StorageTankNamePanel" type="Panel" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -41,7 +47,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gjfwy")
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="StorageTankNameLabel" type="Label" parent="StorageTankNamePanel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -56,3 +62,15 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "FARM"
 label_settings = SubResource("LabelSettings_q8eon")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_gjfwy")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

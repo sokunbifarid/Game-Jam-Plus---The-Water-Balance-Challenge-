@@ -3,8 +3,8 @@ extends Control
 @onready var options_control: Control = $OptionsControl
 @onready var help_control: Control = $HelpControl
 @onready var pause_buttons_v_box_container: VBoxContainer = $PauseButtonsVBoxContainer
-@onready var button_pressed_audio_stream_player: AudioStreamPlayer = $"../Audio/ButtonPressedAudioStreamPlayer"
-@onready var panel_opened_audio_stream_player: AudioStreamPlayer = $"../Audio/PanelOpenedAudioStreamPlayer"
+@onready var button_pressed_audio_stream_player: AudioStreamPlayer = $Audio/ButtonPressedAudioStreamPlayer
+@onready var panel_opened_audio_stream_player: AudioStreamPlayer = $Audio/PanelOpenedAudioStreamPlayer
 
 signal pause_closed
 

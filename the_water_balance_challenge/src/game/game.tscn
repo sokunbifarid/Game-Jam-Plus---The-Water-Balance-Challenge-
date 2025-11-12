@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://t2xv0frrgbdq"]
+[gd_scene load_steps=13 format=3 uid="uid://t2xv0frrgbdq"]
 
 [ext_resource type="Script" uid="uid://bxfhl7c4xbhtc" path="res://src/game/in_game_ui.gd" id="1_n7s5x"]
 [ext_resource type="Texture2D" uid="uid://ddqk0qtnoh0df" path="res://assets/ui/buttons/pause_button.png" id="2_6kr85"]
@@ -7,14 +7,19 @@
 [ext_resource type="PackedScene" uid="uid://caoxdpljo8d5k" path="res://src/game/level_failed_control.tscn" id="5_n7s5x"]
 [ext_resource type="PackedScene" uid="uid://m7klogcyjkp0" path="res://src/audio/button_pressed_audio_stream_player.tscn" id="6_jhw8o"]
 [ext_resource type="PackedScene" uid="uid://j3sby4v5ayby" path="res://src/audio/game_music_audio_stream_player.tscn" id="6_yarin"]
+[ext_resource type="PackedScene" uid="uid://d311nnxtb48jf" path="res://src/game/container_controller.tscn" id="7_htx8b"]
 [ext_resource type="PackedScene" uid="uid://bvt7uc46gn3rd" path="res://src/audio/panel_opened_audio_stream_player.tscn" id="7_n7s5x"]
 [ext_resource type="PackedScene" uid="uid://5xttcwq7wmbe" path="res://src/ui/black_screen_cover.tscn" id="9_6kr85"]
+[ext_resource type="PackedScene" uid="uid://b1ujwjmh1w4l4" path="res://src/game/map.tscn" id="10_7r0dx"]
+[ext_resource type="PackedScene" uid="uid://b86tul50ei7o8" path="res://src/game/player.tscn" id="11_htx8b"]
 
 [node name="Game" type="Node"]
 
 [node name="BlackScreenCover" parent="." instance=ExtResource("9_6kr85")]
+visible = false
 
 [node name="InGameUI" type="Control" parent="."]
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,15 +44,26 @@ visible = false
 layout_mode = 1
 
 [node name="LevelFailedControl" parent="InGameUI" instance=ExtResource("5_n7s5x")]
+visible = false
+layout_mode = 1
+
+[node name="ContainerController" parent="InGameUI" instance=ExtResource("7_htx8b")]
 layout_mode = 1
 
 [node name="Audio" type="Node" parent="InGameUI"]
+
+[node name="GameMusicAudioStreamPlayer" parent="InGameUI/Audio" instance=ExtResource("6_yarin")]
 
 [node name="ButtonPressedAudioStreamPlayer" parent="InGameUI/Audio" instance=ExtResource("6_jhw8o")]
 
 [node name="PanelOpenedAudioStreamPlayer" parent="InGameUI/Audio" instance=ExtResource("7_n7s5x")]
 
-[node name="GameMusicAudioStreamPlayer" parent="InGameUI/Audio" instance=ExtResource("6_yarin")]
+[node name="GameNodes" type="Node2D" parent="."]
+
+[node name="Map" parent="GameNodes" instance=ExtResource("10_7r0dx")]
+
+[node name="Player" parent="GameNodes" instance=ExtResource("11_htx8b")]
+position = Vector2(417, 363)
 
 [connection signal="pressed" from="InGameUI/PauseTextureButton" to="InGameUI" method="_on_pause_texture_button_pressed"]
 [connection signal="pause_closed" from="InGameUI/PauseControl" to="InGameUI" method="_on_pause_control_pause_closed"]

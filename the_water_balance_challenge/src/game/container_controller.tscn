@@ -1,0 +1,108 @@
+[gd_scene load_steps=7 format=3 uid="uid://d311nnxtb48jf"]
+
+[ext_resource type="FontFile" uid="uid://bjfj3cuvgd5g4" path="res://assets/fonts/Octosale-LV114.otf" id="1_0631d"]
+[ext_resource type="PackedScene" uid="uid://chxlaptuhl1uc" path="res://src/game/ui_storage_container.tscn" id="2_2hdyj"]
+[ext_resource type="Texture2D" uid="uid://cg13hyt5ovte2" path="res://assets/ui/buttons/single_button_back_panel.png" id="3_vo70i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80fip"]
+bg_color = Color(0.8235294, 0.75686276, 0.58431375, 0.7019608)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cvpot"]
+font = ExtResource("1_0631d")
+font_size = 92
+outline_size = 100
+outline_color = Color(0.19842076, 0.16738307, 0.05629214, 0.6117647)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l5jlt"]
+font = ExtResource("1_0631d")
+font_size = 64
+font_color = Color(0.37254903, 0.2509804, 0.12941177, 1)
+
+[node name="ContainerController" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContainerHolderPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -650.0
+offset_top = -347.5
+offset_right = 650.0
+offset_bottom = 347.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_80fip")
+
+[node name="ContainerVBoxContainer" type="VBoxContainer" parent="ContainerHolderPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -475.0
+offset_top = -303.0
+offset_right = 475.0
+offset_bottom = 335.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="WaterTableLabel" type="Label" parent="ContainerHolderPanel/ContainerVBoxContainer"]
+layout_mode = 2
+text = "Water Table"
+label_settings = SubResource("LabelSettings_cvpot")
+horizontal_alignment = 1
+
+[node name="ContainerSorterHBoxContainer" type="HBoxContainer" parent="ContainerHolderPanel/ContainerVBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="UiStorageContainer" parent="ContainerHolderPanel/ContainerVBoxContainer/ContainerSorterHBoxContainer" instance=ExtResource("2_2hdyj")]
+layout_mode = 2
+
+[node name="UiStorageContainer2" parent="ContainerHolderPanel/ContainerVBoxContainer/ContainerSorterHBoxContainer" instance=ExtResource("2_2hdyj")]
+layout_mode = 2
+
+[node name="UiStorageContainer3" parent="ContainerHolderPanel/ContainerVBoxContainer/ContainerSorterHBoxContainer" instance=ExtResource("2_2hdyj")]
+layout_mode = 2
+
+[node name="CloseTextureButton" type="TextureButton" parent="ContainerHolderPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -155.5
+offset_top = -24.0
+offset_right = 155.5
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("3_vo70i")
+
+[node name="CloseLabel" type="Label" parent="ContainerHolderPanel/CloseTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = -33.5
+offset_right = 108.0
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Close"
+label_settings = SubResource("LabelSettings_l5jlt")
+horizontal_alignment = 1
