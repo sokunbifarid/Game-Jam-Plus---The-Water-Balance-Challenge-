@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ben015ddg3i15"]
+[gd_scene load_steps=16 format=3 uid="uid://ben015ddg3i15"]
 
 [ext_resource type="Script" uid="uid://c16dmrdkp41lp" path="res://src/ui/main_menu/main_menu.gd" id="1_73fpq"]
 [ext_resource type="PackedScene" uid="uid://5xttcwq7wmbe" path="res://src/ui/black_screen_cover.tscn" id="1_qkuje"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://qa1uckwoia3h" path="res://src/ui/main_menu/help_control.tscn" id="8_uiflr"]
 [ext_resource type="PackedScene" uid="uid://m7klogcyjkp0" path="res://src/audio/button_pressed_audio_stream_player.tscn" id="9_ctewx"]
 [ext_resource type="PackedScene" uid="uid://bvt7uc46gn3rd" path="res://src/audio/panel_opened_audio_stream_player.tscn" id="10_ctewx"]
+[ext_resource type="PackedScene" uid="uid://b1ujwjmh1w4l4" path="res://src/game/map.tscn" id="12_odgsv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6q0c0"]
 font = ExtResource("4_73fpq")
@@ -27,7 +28,10 @@ font = ExtResource("4_73fpq")
 font_size = 50
 font_color = Color(0.27058825, 0.16862746, 0.06666667, 1)
 
-[node name="MainMenu" type="Control"]
+[node name="Main" type="Node"]
+
+[node name="MainMenu" type="Control" parent="."]
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,7 +40,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_73fpq")
 
-[node name="Menu" type="Control" parent="."]
+[node name="Menu" type="Control" parent="MainMenu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,7 +49,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_73fpq")
 
-[node name="Panel" type="Panel" parent="Menu"]
+[node name="Panel" type="Panel" parent="MainMenu/Menu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,7 +57,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ButtonsVBoxContainer" type="VBoxContainer" parent="Menu"]
+[node name="ButtonsVBoxContainer" type="VBoxContainer" parent="MainMenu/Menu"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -68,11 +72,11 @@ grow_horizontal = 2
 grow_vertical = 0
 pivot_offset = Vector2(155, 310)
 
-[node name="PlayTextureButton" type="TextureButton" parent="Menu/ButtonsVBoxContainer"]
+[node name="PlayTextureButton" type="TextureButton" parent="MainMenu/Menu/ButtonsVBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("3_odgsv")
 
-[node name="PlayLabel" type="Label" parent="Menu/ButtonsVBoxContainer/PlayTextureButton"]
+[node name="PlayLabel" type="Label" parent="MainMenu/Menu/ButtonsVBoxContainer/PlayTextureButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -88,11 +92,11 @@ grow_vertical = 2
 text = "PLAY"
 label_settings = SubResource("LabelSettings_6q0c0")
 
-[node name="OptionsTextureButton" type="TextureButton" parent="Menu/ButtonsVBoxContainer"]
+[node name="OptionsTextureButton" type="TextureButton" parent="MainMenu/Menu/ButtonsVBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("3_odgsv")
 
-[node name="OptionsLabel" type="Label" parent="Menu/ButtonsVBoxContainer/OptionsTextureButton"]
+[node name="OptionsLabel" type="Label" parent="MainMenu/Menu/ButtonsVBoxContainer/OptionsTextureButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -108,11 +112,11 @@ grow_vertical = 2
 text = "OPTIONS"
 label_settings = SubResource("LabelSettings_ayvlc")
 
-[node name="HelpTextureButton" type="TextureButton" parent="Menu/ButtonsVBoxContainer"]
+[node name="HelpTextureButton" type="TextureButton" parent="MainMenu/Menu/ButtonsVBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("3_odgsv")
 
-[node name="HelpLabel" type="Label" parent="Menu/ButtonsVBoxContainer/HelpTextureButton"]
+[node name="HelpLabel" type="Label" parent="MainMenu/Menu/ButtonsVBoxContainer/HelpTextureButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -128,11 +132,11 @@ grow_vertical = 2
 text = "HELP"
 label_settings = SubResource("LabelSettings_1wwld")
 
-[node name="CloseTextureButton" type="TextureButton" parent="Menu/ButtonsVBoxContainer"]
+[node name="CloseTextureButton" type="TextureButton" parent="MainMenu/Menu/ButtonsVBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("3_odgsv")
 
-[node name="CloseLabel" type="Label" parent="Menu/ButtonsVBoxContainer/CloseTextureButton"]
+[node name="CloseLabel" type="Label" parent="MainMenu/Menu/ButtonsVBoxContainer/CloseTextureButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -145,22 +149,22 @@ offset_right = 42.5
 offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "QUIT"
+text = "quit"
 label_settings = SubResource("LabelSettings_6q0c0")
 
-[node name="Audio" type="Node" parent="Menu"]
+[node name="Audio" type="Node" parent="MainMenu/Menu"]
 
-[node name="ButtonPressedAudioStreamPlayer" parent="Menu/Audio" instance=ExtResource("9_ctewx")]
+[node name="ButtonPressedAudioStreamPlayer" parent="MainMenu/Menu/Audio" instance=ExtResource("9_ctewx")]
 
-[node name="PanelOpenedAudioStreamPlayer" parent="Menu/Audio" instance=ExtResource("10_ctewx")]
+[node name="PanelOpenedAudioStreamPlayer" parent="MainMenu/Menu/Audio" instance=ExtResource("10_ctewx")]
 
-[node name="OptionsControl" parent="." instance=ExtResource("6_hhctb")]
+[node name="OptionsControl" parent="MainMenu" instance=ExtResource("6_hhctb")]
 layout_mode = 1
 
-[node name="HelpControl" parent="." instance=ExtResource("8_uiflr")]
+[node name="HelpControl" parent="MainMenu" instance=ExtResource("8_uiflr")]
 layout_mode = 1
 
-[node name="GameName" type="TextureRect" parent="."]
+[node name="GameName" type="TextureRect" parent="MainMenu"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -172,21 +176,46 @@ offset_bottom = 301.0
 grow_horizontal = 2
 texture = ExtResource("2_uiflr")
 
-[node name="BlackScreenCover" parent="." instance=ExtResource("1_qkuje")]
+[node name="BlackScreenCover" parent="MainMenu" instance=ExtResource("1_qkuje")]
+visible = false
 layout_mode = 1
 
-[node name="Audio" type="Node" parent="."]
+[node name="Audio" type="Node" parent="MainMenu"]
 
-[node name="GameMusicAudioStreamPlayer" parent="Audio" instance=ExtResource("8_2rik1")]
+[node name="GameMusicAudioStreamPlayer" parent="MainMenu/Audio" instance=ExtResource("8_2rik1")]
 
-[connection signal="help_button_pressed" from="Menu" to="." method="_on_menu_help_button_pressed"]
-[connection signal="options_button_pressed" from="Menu" to="." method="_on_menu_options_button_pressed"]
-[connection signal="play_button_pressed" from="Menu" to="." method="_on_menu_play_button_pressed"]
-[connection signal="visibility_changed" from="Menu" to="Menu" method="_on_visibility_changed"]
-[connection signal="pressed" from="Menu/ButtonsVBoxContainer/PlayTextureButton" to="Menu" method="_on_play_texture_button_pressed"]
-[connection signal="pressed" from="Menu/ButtonsVBoxContainer/OptionsTextureButton" to="Menu" method="_on_options_texture_button_pressed"]
-[connection signal="pressed" from="Menu/ButtonsVBoxContainer/HelpTextureButton" to="Menu" method="_on_help_texture_button_pressed"]
-[connection signal="pressed" from="Menu/ButtonsVBoxContainer/CloseTextureButton" to="Menu" method="_on_close_texture_button_pressed"]
-[connection signal="options_closed" from="OptionsControl" to="." method="_on_options_control_options_closed"]
-[connection signal="help_closed" from="HelpControl" to="." method="_on_help_control_help_closed"]
-[connection signal="zoom_out_completed" from="BlackScreenCover" to="." method="_on_black_screen_cover_zoom_out_completed"]
+[node name="Map" parent="." instance=ExtResource("12_odgsv")]
+
+[node name="StorageTankNamePanel" parent="Map/StorageTanks/StorageTank" index="2"]
+visible = false
+
+[node name="StorageTankNamePanel" parent="Map/StorageTanks/StorageTank2" index="2"]
+visible = false
+
+[node name="StorageTankNamePanel" parent="Map/StorageTanks/StorageTank3" index="2"]
+visible = false
+
+[connection signal="help_button_pressed" from="MainMenu/Menu" to="MainMenu" method="_on_menu_help_button_pressed"]
+[connection signal="options_button_pressed" from="MainMenu/Menu" to="MainMenu" method="_on_menu_options_button_pressed"]
+[connection signal="play_button_pressed" from="MainMenu/Menu" to="MainMenu" method="_on_menu_play_button_pressed"]
+[connection signal="visibility_changed" from="MainMenu/Menu" to="MainMenu/Menu" method="_on_visibility_changed"]
+[connection signal="pressed" from="MainMenu/Menu/ButtonsVBoxContainer/PlayTextureButton" to="MainMenu/Menu" method="_on_play_texture_button_pressed"]
+[connection signal="pressed" from="MainMenu/Menu/ButtonsVBoxContainer/OptionsTextureButton" to="MainMenu/Menu" method="_on_options_texture_button_pressed"]
+[connection signal="pressed" from="MainMenu/Menu/ButtonsVBoxContainer/HelpTextureButton" to="MainMenu/Menu" method="_on_help_texture_button_pressed"]
+[connection signal="pressed" from="MainMenu/Menu/ButtonsVBoxContainer/CloseTextureButton" to="MainMenu/Menu" method="_on_close_texture_button_pressed"]
+[connection signal="options_closed" from="MainMenu/OptionsControl" to="MainMenu" method="_on_options_control_options_closed"]
+[connection signal="help_closed" from="MainMenu/HelpControl" to="MainMenu" method="_on_help_control_help_closed"]
+[connection signal="zoom_out_completed" from="MainMenu/BlackScreenCover" to="MainMenu" method="_on_black_screen_cover_zoom_out_completed"]
+
+[editable path="Map"]
+[editable path="Map/StorageTanks/StorageTank"]
+[editable path="Map/StorageTanks/StorageTank2"]
+[editable path="Map/StorageTanks/StorageTank3"]
+[editable path="Map/Pipes/BurstPipe"]
+[editable path="Map/Pipes/BurstPipe2"]
+[editable path="Map/Pipes/BurstPipe3"]
+[editable path="Map/Pipes/BurstPipe5"]
+[editable path="Map/Pipes/BurstPipe6"]
+[editable path="Map/Pipes/BurstPipe7"]
+[editable path="Map/Pipes/BurstPipe8"]
+[editable path="Map/Pipes/BurstPipe9"]

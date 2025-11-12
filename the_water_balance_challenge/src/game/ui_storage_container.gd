@@ -37,10 +37,14 @@ func _on_visibility_changed() -> void:
 	if visible:
 		set_process(true)
 		if current_storage_type == Global.current_active_storage_container:
-			v_slider.editable = true
-			self.modulate = Color(1,1,1)
+			if v_slider:
+				v_slider.editable = true
+			if self:
+				self.modulate = Color(1,1,1)
 		else:
-			v_slider.editable = false
-			self.modulate = Color(0.5,0.5,0.5)
+			if v_slider:
+				v_slider.editable = false
+			if self:
+				self.modulate = Color(0.5,0.5,0.5)
 	else:
 		set_process(false)

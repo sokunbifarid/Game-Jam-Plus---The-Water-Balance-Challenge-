@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://t2xv0frrgbdq"]
+[gd_scene load_steps=29 format=3 uid="uid://t2xv0frrgbdq"]
 
 [ext_resource type="Script" uid="uid://bxfhl7c4xbhtc" path="res://src/game/in_game_ui.gd" id="1_n7s5x"]
 [ext_resource type="Script" uid="uid://dijiolbvp1xrj" path="res://src/game/game.gd" id="1_ueio8"]
@@ -6,13 +6,118 @@
 [ext_resource type="PackedScene" uid="uid://bewwhwixmxul2" path="res://src/game/pause_control.tscn" id="3_xptat"]
 [ext_resource type="PackedScene" uid="uid://ckdgt3hhtstpq" path="res://src/game/level_completed_control.tscn" id="4_jhw8o"]
 [ext_resource type="PackedScene" uid="uid://caoxdpljo8d5k" path="res://src/game/level_failed_control.tscn" id="5_n7s5x"]
+[ext_resource type="Script" uid="uid://dk0x34u6wmu01" path="res://src/game/user_hud.gd" id="5_xniy2"]
+[ext_resource type="FontFile" uid="uid://bjfj3cuvgd5g4" path="res://assets/fonts/Octosale-LV114.otf" id="6_80fip"]
 [ext_resource type="PackedScene" uid="uid://m7klogcyjkp0" path="res://src/audio/button_pressed_audio_stream_player.tscn" id="6_jhw8o"]
 [ext_resource type="PackedScene" uid="uid://j3sby4v5ayby" path="res://src/audio/game_music_audio_stream_player.tscn" id="6_yarin"]
 [ext_resource type="PackedScene" uid="uid://d311nnxtb48jf" path="res://src/game/container_controller.tscn" id="7_htx8b"]
 [ext_resource type="PackedScene" uid="uid://bvt7uc46gn3rd" path="res://src/audio/panel_opened_audio_stream_player.tscn" id="7_n7s5x"]
 [ext_resource type="PackedScene" uid="uid://5xttcwq7wmbe" path="res://src/ui/black_screen_cover.tscn" id="9_6kr85"]
 [ext_resource type="PackedScene" uid="uid://b1ujwjmh1w4l4" path="res://src/game/map.tscn" id="10_7r0dx"]
+[ext_resource type="Texture2D" uid="uid://cg13hyt5ovte2" path="res://assets/ui/buttons/single_button_back_panel.png" id="11_80fip"]
+[ext_resource type="PackedScene" uid="uid://qa1uckwoia3h" path="res://src/ui/main_menu/help_control.tscn" id="11_cvpot"]
 [ext_resource type="PackedScene" uid="uid://b86tul50ei7o8" path="res://src/game/player.tscn" id="11_htx8b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cvpot"]
+font = ExtResource("6_80fip")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xniy2"]
+bg_color = Color(0.6, 0.6, 0.6, 0.42745098)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80fip"]
+bg_color = Color(0.98, 0.11760001, 0.11760001, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_l5jlt"]
+font = ExtResource("6_80fip")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_cwxnf"]
+font = ExtResource("6_80fip")
+
+[sub_resource type="LabelSettings" id="LabelSettings_4r86i"]
+font = ExtResource("6_80fip")
+
+[sub_resource type="LabelSettings" id="LabelSettings_x1f1g"]
+font = ExtResource("6_80fip")
+font_size = 64
+font_color = Color(0.37254903, 0.2509804, 0.12941177, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_80fip"]
+font = ExtResource("6_80fip")
+font_size = 72
+font_color = Color(0.45999998, 0.8379999, 1, 1)
+outline_size = 50
+outline_color = Color(0.58, 0.1856, 0.1856, 1)
+
+[sub_resource type="Animation" id="Animation_80fip"]
+resource_name = "scale"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NoticeLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NoticeLabel:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cvpot"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NoticeLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NoticeLabel:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l5jlt"]
+_data = {
+&"RESET": SubResource("Animation_cvpot"),
+&"scale": SubResource("Animation_80fip")
+}
 
 [node name="Game" type="Node"]
 script = ExtResource("1_ueio8")
@@ -37,7 +142,143 @@ offset_left = 16.0
 offset_top = 16.0
 offset_right = 167.0
 offset_bottom = 169.0
+disabled = true
 texture_normal = ExtResource("2_6kr85")
+
+[node name="UserHud" type="Control" parent="InGameUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("5_xniy2")
+
+[node name="Panel" type="Panel" parent="InGameUI/UserHud"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -191.0
+offset_right = 568.0
+offset_bottom = -32.0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InGameUI/UserHud/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -27.0
+offset_right = 230.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InGameUI/UserHud/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="CommunityHappinessVBoxContainer" type="HBoxContainer" parent="InGameUI/UserHud/Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="CommunityHappinessLabel" type="Label" parent="InGameUI/UserHud/Panel/VBoxContainer/VBoxContainer/CommunityHappinessVBoxContainer"]
+layout_mode = 2
+text = "Community Happiness"
+label_settings = SubResource("LabelSettings_cvpot")
+
+[node name="CommunityHappinessProgressBar" type="ProgressBar" parent="InGameUI/UserHud/Panel/VBoxContainer/VBoxContainer/CommunityHappinessVBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("6_80fip")
+theme_override_styles/background = SubResource("StyleBoxFlat_xniy2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_80fip")
+value = 30.0
+rounded = true
+
+[node name="StorageInfoSorterHBoxContainer" type="HBoxContainer" parent="InGameUI/UserHud/Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Storage1HolderVBoxContainer" type="VBoxContainer" parent="InGameUI/UserHud/Panel/VBoxContainer/VBoxContainer/StorageInfoSorterHBoxContainer"]
+layout_mode = 2
+
+[node name="Storage1NameLabel" type="Label" parent="InGameUI/UserHud/Panel/VBoxContainer/VBoxContainer/StorageInfoSorterHBoxContainer/Storage1HolderVBoxContainer"]
+layout_mode = 2
+text = "Farm"
+label_settings = SubResource("LabelSettings_l5jlt")
+horizontal_alignment = 1
+
+[node name="Storage1DataVBoxContainer" type="VBoxContainer" parent="InGameUI/UserHud/Panel/VBoxContainer/VBoxContainer/StorageInfoSorterHBoxContainer/Storage1HolderVBoxContainer"]
+layout_mode = 2
+
+[node name="Storage1RequiredLabel" type="Label" parent="InGameUI/UserHud/Panel/VBoxContainer/VBoxContainer/StorageInfoSorterHBoxContainer/Storage1HolderVBoxContainer/Storage1DataVBoxContainer"]
+layout_mode = 2
+text = "Required: 20%"
+label_settings = SubResource("LabelSettings_cwxnf")
+
+[node name="Storage1ProvidedLabel" type="Label" parent="InGameUI/UserHud/Panel/VBoxContainer/VBoxContainer/StorageInfoSorterHBoxContainer/Storage1HolderVBoxContainer/Storage1DataVBoxContainer"]
+layout_mode = 2
+text = "Provided: 10%"
+label_settings = SubResource("LabelSettings_4r86i")
+
+[node name="VSeparator" type="VSeparator" parent="InGameUI/UserHud/Panel/VBoxContainer/VBoxContainer/StorageInfoSorterHBoxContainer"]
+layout_mode = 2
+
+[node name="Storage2HolderVBoxContainer" type="VBoxContainer" parent="InGameUI/UserHud/Panel/VBoxContainer/VBoxContainer/StorageInfoSorterHBoxContainer"]
+layout_mode = 2
+
+[node name="Storage2NameLabel" type="Label" parent="InGameUI/UserHud/Panel/VBoxContainer/VBoxContainer/StorageInfoSorterHBoxContainer/Storage2HolderVBoxContainer"]
+layout_mode = 2
+text = "Barn"
+label_settings = SubResource("LabelSettings_l5jlt")
+horizontal_alignment = 1
+
+[node name="Storage2DataVBoxContainer" type="VBoxContainer" parent="InGameUI/UserHud/Panel/VBoxContainer/VBoxContainer/StorageInfoSorterHBoxContainer/Storage2HolderVBoxContainer"]
+layout_mode = 2
+
+[node name="Storage2RequiredLabel" type="Label" parent="InGameUI/UserHud/Panel/VBoxContainer/VBoxContainer/StorageInfoSorterHBoxContainer/Storage2HolderVBoxContainer/Storage2DataVBoxContainer"]
+layout_mode = 2
+text = "Required: 40%"
+label_settings = SubResource("LabelSettings_cwxnf")
+
+[node name="Storage2ProvidedLabel" type="Label" parent="InGameUI/UserHud/Panel/VBoxContainer/VBoxContainer/StorageInfoSorterHBoxContainer/Storage2HolderVBoxContainer/Storage2DataVBoxContainer"]
+layout_mode = 2
+text = "Provided: 5%"
+label_settings = SubResource("LabelSettings_4r86i")
+
+[node name="VSeparator2" type="VSeparator" parent="InGameUI/UserHud/Panel/VBoxContainer/VBoxContainer/StorageInfoSorterHBoxContainer"]
+layout_mode = 2
+
+[node name="Storage3HolderVBoxContainer" type="VBoxContainer" parent="InGameUI/UserHud/Panel/VBoxContainer/VBoxContainer/StorageInfoSorterHBoxContainer"]
+layout_mode = 2
+
+[node name="Storage3NameLabel" type="Label" parent="InGameUI/UserHud/Panel/VBoxContainer/VBoxContainer/StorageInfoSorterHBoxContainer/Storage3HolderVBoxContainer"]
+layout_mode = 2
+text = "City"
+label_settings = SubResource("LabelSettings_l5jlt")
+horizontal_alignment = 1
+
+[node name="Storage3DataVBoxContainer" type="VBoxContainer" parent="InGameUI/UserHud/Panel/VBoxContainer/VBoxContainer/StorageInfoSorterHBoxContainer/Storage3HolderVBoxContainer"]
+layout_mode = 2
+
+[node name="Storage3RequiredLabel" type="Label" parent="InGameUI/UserHud/Panel/VBoxContainer/VBoxContainer/StorageInfoSorterHBoxContainer/Storage3HolderVBoxContainer/Storage3DataVBoxContainer"]
+layout_mode = 2
+text = "Required: 60%"
+label_settings = SubResource("LabelSettings_cwxnf")
+
+[node name="Storage3ProvidedLabel" type="Label" parent="InGameUI/UserHud/Panel/VBoxContainer/VBoxContainer/StorageInfoSorterHBoxContainer/Storage3HolderVBoxContainer/Storage3DataVBoxContainer"]
+layout_mode = 2
+text = "Provided: 50%"
+label_settings = SubResource("LabelSettings_4r86i")
 
 [node name="PauseControl" parent="InGameUI" instance=ExtResource("3_xptat")]
 layout_mode = 1
@@ -53,6 +294,99 @@ layout_mode = 1
 [node name="ContainerController" parent="InGameUI" instance=ExtResource("7_htx8b")]
 layout_mode = 1
 
+[node name="Tutorial" type="Control" parent="InGameUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="InGameUI/Tutorial"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HelpControl" parent="InGameUI/Tutorial/Panel" instance=ExtResource("11_cvpot")]
+visible = true
+layout_mode = 1
+
+[node name="Panel" parent="InGameUI/Tutorial/Panel/HelpControl" index="0"]
+visible = false
+
+[node name="CloseTextureButton" parent="InGameUI/Tutorial/Panel/HelpControl" index="2"]
+visible = false
+
+[node name="CloseTextureButton" type="TextureButton" parent="InGameUI/Tutorial/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -155.5
+offset_top = -176.0
+offset_right = 155.5
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("11_80fip")
+
+[node name="CloseLabel" type="Label" parent="InGameUI/Tutorial/Panel/CloseTextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = -33.5
+offset_right = 108.0
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Close"
+label_settings = SubResource("LabelSettings_x1f1g")
+horizontal_alignment = 1
+
+[node name="GameNotice" type="Control" parent="InGameUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="NoticeLabel" type="Label" parent="InGameUI/GameNotice"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -451.5
+offset_top = -76.5
+offset_right = 451.5
+offset_bottom = 76.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(451, 76)
+text = "FIX BROKEN PIPES!"
+label_settings = SubResource("LabelSettings_80fip")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NoticeAnimationPlayer" type="AnimationPlayer" parent="InGameUI/GameNotice"]
+libraries = {
+&"": SubResource("AnimationLibrary_l5jlt")
+}
+
 [node name="Audio" type="Node" parent="InGameUI"]
 
 [node name="GameMusicAudioStreamPlayer" parent="InGameUI/Audio" instance=ExtResource("6_yarin")]
@@ -60,6 +394,13 @@ layout_mode = 1
 [node name="ButtonPressedAudioStreamPlayer" parent="InGameUI/Audio" instance=ExtResource("6_jhw8o")]
 
 [node name="PanelOpenedAudioStreamPlayer" parent="InGameUI/Audio" instance=ExtResource("7_n7s5x")]
+
+[node name="GameProgressTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CommunityHappinessLossTimer" type="Timer" parent="."]
+wait_time = 50.0
+one_shot = true
 
 [node name="GameNodes" type="Node2D" parent="."]
 
@@ -70,3 +411,8 @@ position = Vector2(436, 397)
 
 [connection signal="pressed" from="InGameUI/PauseTextureButton" to="InGameUI" method="_on_pause_texture_button_pressed"]
 [connection signal="pause_closed" from="InGameUI/PauseControl" to="InGameUI" method="_on_pause_control_pause_closed"]
+[connection signal="pressed" from="InGameUI/Tutorial/Panel/CloseTextureButton" to="." method="_on_tutorial_close_texture_button_pressed"]
+[connection signal="timeout" from="GameProgressTimer" to="." method="_on_game_progress_timer_timeout"]
+[connection signal="timeout" from="CommunityHappinessLossTimer" to="." method="_on_community_happiness_loss_timer_timeout"]
+
+[editable path="InGameUI/Tutorial/Panel/HelpControl"]

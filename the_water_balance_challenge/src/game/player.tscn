@@ -129,6 +129,5 @@ shape = SubResource("CapsuleShape2D_7dijx")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 target_desired_distance = 30.0
 simplify_path = true
-debug_enabled = true
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]

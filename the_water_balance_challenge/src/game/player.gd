@@ -14,11 +14,11 @@ func _on_game_ended(value: bool):
 	if value:
 		can_control_character = false
 		set_physics_process(false)
-		set_process_input(false)
+		set_process_unhandled_input(false)
 	else:
 		can_control_character = true
 		set_physics_process(true)
-		set_process_input(true)
+		set_process_unhandled_input(true)
 	animated_sprite_2d.play("idle")
 
 func _on_resource_management_active(value: bool, _id: int) -> void:
@@ -30,6 +30,8 @@ func _on_resource_management_active(value: bool, _id: int) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
+		Global.set_active_storage_container_to_none()
+		Global.set_focused_item(null)
 		set_next_target_position(get_global_mouse_position())
 
 func _physics_process(delta: float) -> void:

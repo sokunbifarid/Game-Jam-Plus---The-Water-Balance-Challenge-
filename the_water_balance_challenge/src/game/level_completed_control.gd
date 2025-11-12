@@ -7,6 +7,10 @@ const MAIN_MENU = preload("uid://ben015ddg3i15")
 
 func _ready() -> void:
 	self.hide()
+	Global.level_completed_signal.connect(_on_level_completed)
+
+func _on_level_completed() -> void:
+	self.show()
 
 func _on_visibility_changed() -> void:
 	if visible:

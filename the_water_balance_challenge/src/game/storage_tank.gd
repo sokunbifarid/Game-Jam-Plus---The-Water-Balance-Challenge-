@@ -28,11 +28,11 @@ func _on_game_ended(value: bool) -> void:
 		can_detect_mouse = false
 		mouse_in_area = false
 		set_process(false)
-		set_process_input(false)
+		set_process_unhandled_input(false)
 	else:
 		can_detect_mouse = true
 		set_process(true)
-		set_process_input(true)
+		set_process_unhandled_input(true)
 
 func _on_mouse_entered() -> void:
 	if can_detect_mouse:
@@ -52,7 +52,7 @@ func set_container_based_on_type() -> void:
 	else:
 		Global.set_active_storage_container_to_none()
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if can_detect_mouse and mouse_in_area:
 		if event is InputEventMouseButton:
 			set_container_based_on_type()

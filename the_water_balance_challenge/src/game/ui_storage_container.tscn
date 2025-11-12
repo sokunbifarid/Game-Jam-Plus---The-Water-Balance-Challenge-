@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cbu0qorrlsopa" path="res://src/game/ui_storage_container.gd" id="1_cjsgm"]
 [ext_resource type="Texture2D" uid="uid://co5a1kahycgu3" path="res://assets/2d_art/pipes/pipe_empty.png" id="1_rvpg4"]
 [ext_resource type="Texture2D" uid="uid://k46e2qx7mb31" path="res://assets/2d_art/pipes/pipe_full.png" id="2_k0wae"]
-[ext_resource type="Texture2D" uid="uid://b8e0406ygr5tc" path="res://assets/2d_art/pipes/pipe_lever.png" id="3_cjsgm"]
+[ext_resource type="Texture2D" uid="uid://cuyq8dnus2wb5" path="res://assets/ui/buttons/grabber_slider.png" id="4_cjsgm"]
 [ext_resource type="FontFile" uid="uid://bjfj3cuvgd5g4" path="res://assets/fonts/Octosale-LV114.otf" id="5_rmoqy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mxqhj"]
@@ -40,8 +40,8 @@ offset_top = 4.5
 offset_right = 13.0
 offset_bottom = 24.5
 grow_horizontal = 2
-theme_override_icons/grabber = ExtResource("3_cjsgm")
-theme_override_icons/grabber_highlight = ExtResource("3_cjsgm")
+theme_override_icons/grabber = ExtResource("4_cjsgm")
+theme_override_icons/grabber_highlight = ExtResource("4_cjsgm")
 
 [node name="StorageDataVBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(250, 0)

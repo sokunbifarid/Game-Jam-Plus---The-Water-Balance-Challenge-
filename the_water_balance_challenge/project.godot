@@ -10,7 +10,9 @@ config_version=5
 
 [application]
 
-config/name="New Game Project"
+config/name="The Water Balance Challenge"
+config/description="Submission for Game Jam Plus game jam, members @alanii, @darkraks, @waju"
+config/version="1.0"
 run/main_scene="uid://curd7ad00abp2"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -31,3 +33,4 @@ window/stretch/aspect="expand"
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

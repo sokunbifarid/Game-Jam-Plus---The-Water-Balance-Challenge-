@@ -41,20 +41,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HelpHBoxContainer" type="HBoxContainer" parent="."]
+[node name="HelpHBoxContainer" type="GridContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -619.0
-offset_top = -155.5
-offset_right = 619.0
-offset_bottom = 267.5
+offset_left = -711.5
+offset_top = -457.5
+offset_right = 711.5
+offset_bottom = 457.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 300
+theme_override_constants/h_separation = 189
+theme_override_constants/v_separation = 69
+columns = 2
 
 [node name="ObjectivePanelTextureRect" type="TextureRect" parent="HelpHBoxContainer"]
 layout_mode = 2
@@ -161,6 +163,116 @@ them."
 label_settings = SubResource("LabelSettings_nigwu")
 horizontal_alignment = 1
 
+[node name="KeyAreasPanelTextureRect" type="TextureRect" parent="HelpHBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_ytsj4")
+
+[node name="KeyAreasHeaderTextureRect" type="TextureRect" parent="HelpHBoxContainer/KeyAreasPanelTextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -262.0
+offset_top = -40.0
+offset_right = 262.0
+offset_bottom = 65.0
+grow_horizontal = 2
+texture = ExtResource("3_xtafp")
+
+[node name="KeyAreasLabel" type="Label" parent="HelpHBoxContainer/KeyAreasPanelTextureRect/KeyAreasHeaderTextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.5
+offset_top = -25.0
+offset_right = 94.5
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "KEY NOTE"
+label_settings = SubResource("LabelSettings_xu7mn")
+
+[node name="KeyAreasDocumentedLabel" type="Label" parent="HelpHBoxContainer/KeyAreasPanelTextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -221.5
+offset_top = -24.0
+offset_right = 221.5
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "THE COMMUNITY HAPPINESS IS THE
+DEPENDING FACTOR IN THIS GAME, 
+GET IT TO 100 TO WIN AND GET IT
+TO 0 TO LOSE.
+YOU LOSE COMMUNITY HAPPINESS
+IF THE WATER LEVEL FOR EACH 
+LOCATION IS NOT MAINTAINED
+OVER A WHILE AND IF YOU HAVE
+BROKEN PIPES FOR A WHILE"
+label_settings = SubResource("LabelSettings_nigwu")
+horizontal_alignment = 1
+
+[node name="RepairPanelTextureRect" type="TextureRect" parent="HelpHBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_ytsj4")
+
+[node name="RepairsHeaderTextureRect" type="TextureRect" parent="HelpHBoxContainer/RepairPanelTextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -262.0
+offset_top = -40.0
+offset_right = 262.0
+offset_bottom = 65.0
+grow_horizontal = 2
+texture = ExtResource("3_xtafp")
+
+[node name="RepairLabel" type="Label" parent="HelpHBoxContainer/RepairPanelTextureRect/RepairsHeaderTextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.5
+offset_top = -25.0
+offset_right = 94.5
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "REPAIR"
+label_settings = SubResource("LabelSettings_xu7mn")
+horizontal_alignment = 1
+
+[node name="RepairDocumentedLabel" type="Label" parent="HelpHBoxContainer/RepairPanelTextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -221.5
+offset_top = -24.0
+offset_right = 221.5
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "tap on the broken pipe flames
+to fix them.
+tap on water jars to interact
+with them and set water levels"
+label_settings = SubResource("LabelSettings_nigwu")
+horizontal_alignment = 1
+
 [node name="CloseTextureButton" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -168,10 +280,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -155.5
-offset_top = -224.0
-offset_right = 155.5
-offset_bottom = -72.0
+offset_left = -67.5
+offset_top = -200.0
+offset_right = 243.5
+offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 0
 texture_normal = ExtResource("6_bympf")

@@ -6,3 +6,4 @@
 stream = ExtResource("1_n01fr")
 autoplay = true
 bus = &"Audio"
+parameters/looping = true

@@ -6,7 +6,8 @@ extends Control
 signal help_closed
 
 func _ready() -> void:
-	self.hide()
+	#self.hide()
+	pass
 
 func _on_visibility_changed() -> void:
 	if self.visible and panel_opened_audio_stream_player:
